@@ -1,0 +1,31 @@
+GitHub 上传前快速检查
+
+1. 上传整个文件夹：
+   minecolonies-addons-github
+
+2. 确认不要上传这些内容：
+   - 第三方依赖 jar
+   - build / .gradle / run / 日志
+   - 整个整合包或 .minecraft
+
+3. 当前仓库已包含：
+   - traveleraddon 源码
+   - auto_recipes 源码
+   - README
+   - LICENSE 说明
+   - deps 依赖说明
+   - .gitignore
+
+4. 如果你想“真正开源”而不是“公开源码”：
+   - 先决定许可证
+   - 替换 LICENSE.md
+   - 修改两个项目 gradle.properties 里的 mod_license
+
+5. GitHub 仓库建议信息：
+   - 仓库名：minecolonies-addons 或 sword-with-country-addons
+   - 描述：Forge 1.20.1 addons for MineColonies, including traveler trading and auto recipe patches.
+
+6. 上传后建议立刻补充：
+   - Release 页面上传编译好的 jar
+   - README 首页放视频链接
+   - 标明支持的 MineColonies / Structurize / DO 版本
