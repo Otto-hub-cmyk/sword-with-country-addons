@@ -1,59 +1,74 @@
-# MineColonies Addons for Forge 1.20.1
+# 剑与王国殖民地优化附属模组
 
-This repository contains two custom addons built for a Forge 1.20.1 MineColonies-based modpack.
+本仓库收录了两个基于 Forge 1.20.1 与 MineColonies 生态开发的附属优化模组源码，目标是缓解殖民地玩法中材料获取、工匠教学等重复性问题，提升整合包整体自动化体验。
 
-## Included Projects
+## 项目内容
+
+本仓库包含以下两个项目：
 
 ### `traveleraddon`
-A traveler trading addon for MineColonies.
+旅行者交易附属模组。
 
-Main features:
-- Spawns a traveler near the Town Hall during day and night phases
-- Opens an independent trading GUI on right click
-- Supports colony-demand supply purchase
-- Supports free market purchase for selected items
-- Automatically delivers purchased items into the colony warehouse
-- Includes compatibility safeguards for problematic Domum Ornamentum item data
+提供一个围绕市政厅刷新的旅行者 NPC，玩家可以通过独立交易界面购买物资，并将物资自动送入殖民地仓库。该模组主要用于缓解殖民地发展过程中原材料获取不全面、跑图压力过大的问题。
+
+核心功能：
+- 白天 / 夜晚阶段刷新旅行者
+- 右键直接打开独立交易界面
+- 支持“一键满足当前殖民地需求”
+- 支持自由市场购买指定物资
+- 物资自动送入殖民地仓库
+- 对 Domum Ornamentum 特殊物品做了安全兼容处理
 
 ### `auto_recipes`
-An automation patch for MineColonies crafting workers.
+MineColonies 工匠自动学配方补丁。
 
-Main features:
-- Automatically unlocks compatible recipes for crafting buildings
-- Supports configurable unlock level
-- Adds automatic handling for Domum Ornamentum custom recipe workflows
-- Uses persistent recovery for learned custom recipe input combinations
-- Reduces repetitive manual recipe teaching
+用于减少玩家反复手动教学蓝图的负担，让工坊建筑在达到指定等级后，自动学习兼容配方，并对部分自定义配方流程做自动化处理。
 
-## Target Environment
+核心功能：
+- 工坊达到指定等级后自动学习兼容配方
+- 支持配置自动解锁等级
+- 支持 Domum Ornamentum 自定义配方的自动处理
+- 对已学习的自定义配方输入组合进行持久化恢复
+- 尽量减少玩家逐条手动教学配方的重复劳动
 
-Primary target environment:
+## 适配环境
+
+当前主要开发与测试环境如下：
+
 - Minecraft `1.20.1`
 - Forge `47.4.20`
 - MineColonies `1.20.1-1.1.1197`
 - Structurize `1.20.1-1.0.804`
 - Domum Ornamentum `1.20.1-1.0.296`
 
-## Repository Structure
+## 仓库结构
 
 ```text
 traveleraddon/
 auto_recipes/
 deps/
-Local Build Requirements
-Third-party dependency jars are intentionally not included in this repository.
-Before building locally, place the following files into the deps/ directory:
+traveleraddon/：旅行者交易模组源码
+auto_recipes/：自动学配方补丁源码
+deps/：本地编译所需依赖说明目录，不包含第三方模组本体
+
+##本地构建说明
+
+本仓库不直接附带第三方依赖 jar。
+如需在本地编译，请先将以下依赖文件放入 deps/ 目录：
 minecolonies-1.20.1-1.1.1197.jar
 structurize-1.20.1-1.0.804.jar
 domum_ornamentum-1.20.1-1.0.296-universal.jar
-Build
-Use local Gradle 8.8 in each project directory:
+
+##构建方法
+
+在各自项目目录下，使用本地 Gradle 8.8 执行：
 gradle build
-Notes
-This repository contains source code only.
-Current source is primarily aligned to MineColonies 1.20.1-1.1.1197.
-If you adapt it to other MineColonies 1.20.1 builds, re-test API compatibility carefully.
-Back up your world before testing these mods in an existing save.
-License
-This repository is currently published with an All Rights Reserved notice unless changed explicitly by the author.
-Uploading code to GitHub does not automatically grant redistribution or commercial usage rights.
+
+##使用与注意事项
+
+本仓库提供的是源码，不包含第三方模组本体。
+当前源码主要针对 MineColonies 1.20.1-1.1.1197 版本开发与测试。
+若要适配其他 1.20.1 小版本，请自行重新验证接口与运行行为。
+建议在正式存档测试前先备份世界。
+这两个模组的目标不是替代 MineColonies 本体，而是在现有生态基础上做定向增强与体验优化。
+
